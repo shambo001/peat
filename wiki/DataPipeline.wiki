@@ -1,0 +1,109 @@
+#labels Featured
+==Introduction==
+DataPipeline is a python desktop and web application that uses the fitting and plotting libraries from PEAT to automate the import of raw data in a variety of formats. It is also used for transforming the imported data through various stages of fitting to achieve a final measured parameter. This is useful for handling large amounts of data (e.g from csv files) in a consistent way without having to store everything in spreadsheets.
+
+<wiki:toc max_depth="1" />
+
+==Rationale==
+Raw data from biology, chemistry and just about any laboratory experiments comes in a large variety of formats. Often the data format is proprietary but can often be converted to plain text or csv files for processing by the user. The problem is that the user then has to put the data into a spreadsheet and make sense of it. For one file this might be trivial, but for a lot of files that need processing it becomes laborious. Even when automated in a spreadsheet the workflow can be very confusing.
+
+== Features ==
+
+ * configuration file provides flexible import of raw data in text format
+ * file names can be parsed and grouped by their labels (see examples)
+ * possible to fit raw data and then chain these results to a further round of fitting
+ * add your own non-linear fitting models using a special module
+ * results output as csv files and plots if desired
+ * works from command line as well as desktop application
+ * programmers can add their own importers
+
+== Formats == 
+
+The majority of text readable experimental data from, say, biochemical assays have formatting that can be categorised into pre-defined foramts. For example a table of data can either be presented with independent datasets arranged in '''rows or columns'''. Other variations are then subsets of these cases. (For our purposes 'dataset' refers to a single set of x-y points. The whole purpose of the exercise is to extract these x-y points.) The format is specified in the configuration file under the 'format' keyword, see Configuration. The typical formats you would generally expect to find are built into DataPipeline, that should cover a large percentage of possible cases that will arise.
+
+The chart below illustrates the concept graphically. You will be quite quickly able to see which one of these cases corresponds to your own data file. More complex combinations are possible of course, but this will be rarely the case for most users. For very specific and usual formats a custom importer class can be written to handle it and integrated into the application. Knowledge of python is required for this, see the API section below.
+
+http://peat.googlecode.com/files/Dataformats_overview.png
+
+===Grouped Data===
+A special case that is sometimes encountered in biological assays are files with data grouped by some experimental condition for a range of samples. In this case the data is multidimensional.
+
+== Configuration ==
+
+A typical configuration file is as follows:
+{{{
+[base]
+format = databyrow
+rowstart = 0
+colstart = 0
+rowend = 0
+colend = 0
+rowheader = 
+colheader = 
+rowrepeat = 0
+colrepeat = 0
+delimeter = ,
+workingdir = /home/name/workingdir
+ignorecomments = 1
+checkunicode = 0
+decimalsymbol = .
+xformat = 
+yformat = 
+
+[files]
+groupbyname = 0
+parsenamesindex = 0
+replicates = 0
+
+[fitting]
+xerror = 0
+yerror = 0
+iterations = 50
+modelsfile = 
+
+[models]
+model1 = 
+
+[variables]
+variable1 = 
+
+[excel]
+sheet = 0
+numsheets = 1
+
+[plotting]
+saveplots = 0
+normaliseplots = 0
+grayscale = 0
+dpi = 100
+}}}
+
+===Explanation of options===
+
+||option||explanation||possible values||
+||format||general structure of the data fall into predefined categories||databyrow, databycol, paireddatabyrow, paireddatabycol, groupeddatabycol, groupeddatabyrow||
+||decimalsymbol||symbol used to indicate decimal point||. or ,||
+||delimiter||separator between data||any symbol except a numerical value||
+||rowstart||any integer value||row where the data starts, including x labels||
+||colstart||any integer value||column where the data starts, including y labels||
+||colrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced columns||
+||rowrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced rows||
+
+== Model Fitting ==
+
+The 'pipeline' part of the application involves fitting imported data and grouping the fitted parameters into new sets of data which can in turn be fit to another model. Custom fitting models can be created using the ModelDesign module.
+
+See [DataPipeline model fitting] for more technical information.
+
+
+== Desktop Application ==
+
+http://peat.googlecode.com/files/datapipeline_scr1.png
+
+== Web Application ==
+
+Planned
+
+== API ==
+
+DataPipeline is written in python and uses modules from the PEATDB project for plotting and fitting. For those interested in the programming interface and adding new importers, see API.
