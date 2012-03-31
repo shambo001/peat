@@ -1,0 +1,34 @@
+#labels Featured
+= Introduction =
+
+ModelDesign is a module of the PEAT suite of applications that is used to create non-linear fitting models for use in the Ekin application or elsewhere. The fitting equation, parameters and start values are entered in the dialogs as text and the model may be tested interactively on the users sample data. 
+
+The application is useful for:
+ * quickly transferring and evaluating equations from the literature
+ * testing the usefulness of a particular model for specific data or differing amounts of noise
+ * rapidly comparing different versions of a model
+ * finding the appropriate start values or guesses often required in non-linear fitting
+
+This application is currently available in Ekin and DataPipeline or can be run standalone.
+
+==Usage==
+
+The user interface is simple and mostly self explanatory. On the left side of the window are entry fields for equation, parameters, description and parameter start values. The right side shows a plot of the current test data. When the test model button is pressed a fitter is created from the current settings and used to to fit the data. The plot is updated at each iteration to show the progress. Current fitted parameters values are updated in the plot also. The concept being that if a fit cannot converge the user can interactively alter the start values to improve performance.
+
+One or more models are stored in a python dictionary which can be saved when necessary. This dictionary can be read by Ekin or DataPipeline, applications that perform model fitting. Or users can simply make note of the details and use them in their own fitting application. To create a new model, just press the 'New Model' button, name the model and some default settings are added to the entry fields.
+
+The application opens with some default test datasets. Your own test data can be added by importing a csv file or loading a previously saved Ekin project. Multiple sets of data can be imported and moved through with the navigation buttons above the plot.
+
+http://peat.googlecode.com/svn/wiki/images/Modeldesignapp.png
+
+==Writing Equations==
+
+Models are written using the python syntax, so anyone familiar with that language will find it straightforward. See [http://docs.python.org/tutorial/introduction.html#using-python-as-a-calculator this link] for an introduction for using python as a calculator. The equation must include the 'x' symbol at least once since this represents the independent variable in your data. The model is then fit so as to minimize the difference between your y values and the equation for each corresponding x value. This is called least squares fitting.
+
+==Examples==
+Several basic examples are embedded into the program by default. These are meant to provide an illustration of how models are constructed. They are:
+
+||name||equation||guess values||
+||Linear||a*x+b||a=min(y); b=max(y)-min(y)/max(x)-min(x)||
+||Gaussian||a*exp(-(pow((x-b),2)/(pow(2*c,2))))||None||
+||Sigmoid||bottom+(top-bottom)/(1+exp((tm-x)/slope))||tm=(max(x)-min(x))/2+min(x); bottom=min(y); top=max(y)||
