@@ -22,7 +22,7 @@ The majority of text readable experimental data from, say, biochemical assays ha
 
 The chart below illustrates the concept graphically. You will be quite quickly able to see which one of these cases corresponds to your own data file. More complex combinations are possible of course, but this will be rarely the case for most users. For very specific and usual formats a custom importer class can be written to handle it and integrated into the application. Knowledge of python is required for this, see the API section below.
 
-http://peat.googlecode.com/files/Dataformats_overview.png
+http://peat.googlecode.com/svn/wiki/images/Dataformats_overview.png
 
 ===Grouped Data===
 A special case that is sometimes encountered in biological assays are files with data grouped by some experimental condition for a range of samples. In this case the data is multidimensional.
@@ -96,7 +96,7 @@ See [DataPipeline model fitting] for more technical information.
 
 == Desktop Application ==
 
-http://peat.googlecode.com/files/datapipeline_scr1.png
+http://peat.googlecode.com/svn/wiki/images/datapipeline_scr1.png
 
 == API ==
 
