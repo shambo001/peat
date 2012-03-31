@@ -1,8 +1,7 @@
 #labels Featured
-==Introduction==
-DataPipeline is a python desktop and web application that uses the fitting and plotting libraries from PEAT to automate the import of raw data in a variety of formats. It is also used for transforming the imported data through various stages of fitting to achieve a final measured parameter. This is useful for handling large amounts of data (e.g from csv files) in a consistent way without having to store everything in spreadsheets.
-
 <wiki:toc max_depth="1" />
+==Introduction==
+DataPipeline is a python desktop and command line application that uses the fitting and plotting libraries from PEAT to automate the import of raw data in a variety of formats. It is also used for transforming the imported data through various stages of fitting to achieve a final measured parameter. This is useful for handling large amounts of data (e.g from csv files) in a consistent way without having to store everything in spreadsheets.
 
 ==Rationale==
 Raw data from biology, chemistry and just about any laboratory experiments comes in a large variety of formats. Often the data format is proprietary but can often be converted to plain text or csv files for processing by the user. The problem is that the user then has to put the data into a spreadsheet and make sense of it. For one file this might be trivial, but for a lot of files that need processing it becomes laborious. Even when automated in a spreadsheet the workflow can be very confusing.
@@ -95,14 +94,9 @@ The 'pipeline' part of the application involves fitting imported data and groupi
 
 See [DataPipeline model fitting] for more technical information.
 
-
 == Desktop Application ==
 
 http://peat.googlecode.com/files/datapipeline_scr1.png
-
-== Web Application ==
-
-Planned
 
 == API ==
 
