@@ -1,0 +1,12 @@
+#labels Featured
+= DataPipeline Formats =
+
+The default formats handled by the program are shown below.
+
+|| || *Description* || *Format* ||
+||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case1.png width=200>||Datasets per row with dataset names in header column||databyrow||
+||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case2.png width=200>||Datasets per column with dataset names in header row||databycolumn||
+||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case3.png width=200>||Datasets per row with multiple sets of dataset names in header columns||databyrow||
+||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case4.png width=200>||Datasets per column with multiple sets of dataset names in header rows||databycolumn||
+||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case5.png width=200>||Datasets per row in multiple groups with independent x-y values in columns||groupeddatabyrow||
+||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case6.png width=200>||Datasets per column in multiple groups with independent x-y values in rows||groupeddatabycolumn||
