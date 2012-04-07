@@ -1,7 +1,11 @@
 #labels Featured
 = DataPipeline Formats =
 
-The default formats handled by the program are shown below.
+The default formats handled by the program are shown below in the summery tree:
+
+<img src=http://peat.googlecode.com/svn/wiki/images/Dataformats_overview.png width=800>
+
+==Explanation of formats==
 
 || || *Description* || *Format* ||
 ||<img src=http://peat.googlecode.com/svn/wiki/images/Pipeline_case1.png width=200>||Datasets per row with dataset names in header column||databyrow||
