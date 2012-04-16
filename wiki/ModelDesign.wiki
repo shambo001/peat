@@ -25,10 +25,14 @@ http://peat.googlecode.com/svn/wiki/images/Modeldesignapp.png
 
 Models are written using the python syntax, so anyone familiar with that language will find it straightforward. See [http://docs.python.org/tutorial/introduction.html#using-python-as-a-calculator this link] for an introduction for using python as a calculator. The equation must include the 'x' symbol at least once since this represents the independent variable in your data. The model is then fit so as to minimize the difference between your y values and the equation for each corresponding x value. This is called least squares fitting.
 
-==Examples==
+==Equation Examples==
 Several basic examples are embedded into the program by default. These are meant to provide an illustration of how models are constructed. They are:
 
 ||name||equation||guess values||
 ||Linear||a*x+b||a=min(y); b=max(y)-min(y)/max(x)-min(x)||
 ||Gaussian||a*exp(-(pow((x-b),2)/(pow(2*c,2))))||None||
 ||Sigmoid||bottom+(top-bottom)/(1+exp((tm-x)/slope))||tm=(max(x)-min(x))/2+min(x); bottom=min(y); top=max(y)||
+
+==Model Selection==
+
+Before deciding on curve fitting approaches for their data users may wish to determine the most appropriate models to utilize. The ability to compare two or more models is provided in the ModelDesign module.  The approach used is sometimes referred to as the extra sum-of-squares F-test and is detailed in the [http://www.graphpad.com/index.cfm?cmd=library.page&pageID=12&categoryID=6 Graphpad Practical Guide to Curve Fitting]. (An F-test is any statistical test in which the test statistic has an F-distribution under some null hypothesis). The basic idea of the test is as follows: Given two related models A and B, B is a nested version of A with one more parameter. B will always be able to fit the data at least as well as A. Typically B will give a better (i.e. lower sum of squares error) fit to the data than A. To choose between models, one needs to know if B gives a significantly better fit to the data. The method requires that models are nested, that is, related in some way and with increasing number of parameters and that the same data is used to test all models.
