@@ -1,0 +1,20 @@
+#labels Featured
+==Introduction==
+
+DataPipeline is written in python and can be extended by writing a custom Importer class. Users who are interested in adding their own importers may find the information here useful.
+
+==Base classes==
+
+These are held in the Base.py and consist of:
+Pipeline: Handles all file reading/writing, queuing, fitting and joining of data, managing configuration files and is the core of the the module.
+BaseImporter: This class does the actual import from the file, given a configuration. It has basic methods for
+getting rows, headers etc. In practice this is always subclassed and the doImport method overridden to achieve the desired functionality. There are currently 8 Importer classes built in to DataPipeline that handle the most common text formats.
+These are:
+
+ DatabyColImporter
+ DatabyRowImporter
+ PairedDatabyColImporter
+ PairedDatabyRowImporter
+ GroupedDatabyColImporter
+ GroupedDatabyRowImporter
+ 
