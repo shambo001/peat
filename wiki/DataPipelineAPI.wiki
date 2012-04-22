@@ -11,10 +11,33 @@ BaseImporter: This class does the actual import from the file, given a configura
 getting rows, headers etc. In practice this is always subclassed and the doImport method overridden to achieve the desired functionality. There are currently 8 Importer classes built in to DataPipeline that handle the most common text formats.
 These are:
 
- DatabyColImporter
- DatabyRowImporter
- PairedDatabyColImporter
- PairedDatabyRowImporter
- GroupedDatabyColImporter
- GroupedDatabyRowImporter
- 
+ * DatabyColImporter
+ * DatabyRowImporter
+ * PairedDatabyColImporter
+ * PairedDatabyRowImporter
+ * GroupedDatabyColImporter
+ * GroupedDatabyRowImporter
+
+==Adding a custom importer==
+
+To add your own custom importers, simple subclass the BaseImporter class and put the code in Custom.py so that the importer will be loaded automatically when required. 
+
+ * Set the 'name' property of the importer, this label will be used in the _format_ keyword in the configuration file to identify your importer.
+ * Override the doImport method at minimum.
+ * Look at the other basic importers in Importer.py to see how the various methods are used such as getRowHeader() and so on. You can override these other methods if required, but generally they should be left alone.
+
+A template for a new importer would look like this:
+
+{{{
+class MyCustomImporter(BaseImporter):
+    """This importer handles data formatted in this format.. """
+
+    name = 'mycustomimporter'
+
+    def __init__(self, cp):
+        BaseImporter.__init__(self, cp)
+        return
+
+    def doImport(self, lines):
+        #your code here
+}}}
