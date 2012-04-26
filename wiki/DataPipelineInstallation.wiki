@@ -1,0 +1,20 @@
+#labels Phase-Deploy
+Installation instructions for DataPipeline.
+
+==Windows==
+
+Just download the msi installer package from the downloads section. This will place shortcuts on your desktop.
+
+==Linux==
+
+The easiest way is to use the package manager on your distribution to install python and setuptools. You can then simply type the following at the command line:
+
+easy_install PEATDB DataPipeline
+
+This should also install the other required software. If you have problems installing ZODB3, use the package manager to install python-dev (or python-devel) and gcc.
+
+You can then run the program by typing the command pipelineapp.
+
+==Mac==
+
+There is an installer available in downloads also.
