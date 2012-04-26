@@ -1,5 +1,5 @@
 #labels Phase-Deploy
-Installation instructions for DataPipeline.
+=Installation instructions for DataPipeline=
 
 ==Windows==
 
@@ -17,4 +17,4 @@ You can then run the program by typing the command pipelineapp.
 
 ==Mac==
 
-There is an installer available in downloads also.
+There is an executable available in downloads also.
