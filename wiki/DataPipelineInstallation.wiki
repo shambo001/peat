@@ -3,7 +3,7 @@
 
 ==Windows==
 
-Just download the msi installer package from the downloads section. This will place shortcuts on your desktop.
+Just download the MSI installer from the downloads section. This will place shortcuts on your desktop.
 
 ==Linux==
 
@@ -11,10 +11,14 @@ The easiest way is to use the package manager on your distribution to install py
 
 easy_install PEATDB DataPipeline
 
-This should also install the other required software. If you have problems installing ZODB3, use the package manager to install python-dev (or python-devel) and gcc.
+Or install the python source package from the downloads section. Unzip the file and type:
+
+python setup.py install
+
+This will also install all the other required python packages. If this command fails and reports problems installing ZODB3, use the package manager to install python-dev (or python-devel) and gcc. Then run the command again.
 
 You can then run the program by typing the command pipelineapp.
 
 ==Mac==
 
-There is an executable available in downloads also.
+There is an executable available in downloads section. You may also use the source package method as above if you prefer.
