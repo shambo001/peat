@@ -45,7 +45,6 @@ colrepeat = 0
 delimeter = ,
 workingdir = /home/name/workingdir
 ignorecomments = 1
-checkunicode = 0
 decimalsymbol = .
 xformat = 
 yformat = 
@@ -80,14 +79,27 @@ dpi = 100
 
 ===Explanation of options===
 
-||option||explanation||possible values||
-||format||general structure of the data fall into predefined categories||databyrow, databycol, paireddatabyrow, paireddatabycol, groupeddatabycol, groupeddatabyrow||
-||decimalsymbol||symbol used to indicate decimal point||. or ,||
-||delimiter||separator between data||any symbol except a numerical value||
+||option||possible values||explanation||
+||format||see formats diagram above||general structure of the data fall into predefined categories||
+||decimalsymbol||. or ,||symbol used to indicate decimal point||
+||delimiter||any symbol except a numerical value||separator between data||
 ||rowstart||any integer value||row where the data starts, including x labels||
 ||colstart||any integer value||column where the data starts, including y labels||
+||rowend||any integer value||row where the data ends, optional||
+||colend||any integer value||column where the data ends, optional||
 ||colrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced columns||
 ||rowrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced rows||
+||workingdir||string||name of folder to save results in ||
+||ignorecomments||0 or 1||ignore lines starting with #||
+||xformat||see 'specifying time formats' below||specify if x values in time formats||
+||yformat||as above||specify if y values in time formats||
+||xerror||any decimal||experimental error on all x values||
+||yerror||any decimal||experimental error on all x values||
+||iterations||any value greater than 1||number of rounds of fitting||
+||modelsfile||any valid filename||file to load you models from||
+
+===Specifying time formats===
+The xformat and yformat keywords allow you to specify if either dimension of your data are in units of time. These can then be converted to integer values of seconds for numerical analysis. For example if you x values increasing in amounts of 10 seconds in the folllowing format: 0:10, 0:20, 0:30. You enter *xformat = %M:%S* in the configuration file.
 
 == Model Fitting ==
 
@@ -101,4 +113,4 @@ http://peat.googlecode.com/svn/wiki/images/datapipeline_scr1.png
 
 == API ==
 
-DataPipeline is written in python and uses modules from the PEATDB project for plotting and fitting. For those interested in the programming interface and adding new importers, see API.
+DataPipeline is written in python and uses modules from the PEATDB project for plotting and fitting. For those interested in the programming interface and adding new importers, see DataPipelineAPI.
