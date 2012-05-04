@@ -1,4 +1,5 @@
 #labels Phase-Support
+<img src=http://peat.googlecode.com/svn/wiki/images/DNAtool_logo.png width=100 align="right">
 *DNAtool* is a stand-alone subcomponent of PEATDB that contains standard functions for DNA sequence analysis, and is designed for the researcher who works with smallish pieces of DNA containing a single gene.
 
 == Introduction ==
@@ -26,3 +27,12 @@ Select the “sequence analysis” tab from the toolbar, and “load multiple DN
 Again, mis-matches are automatically highlighted in red, and changes in the amino acid sequence are shown beneath the nucleotide sequence.  The example shows a Aspartic acid to Alanine mutation at position 18 in the amino acid sequence.  The primer is coloured blue, the forward and reverse strand of sequenced DNA in purple, the WT nucleotide sequence is green.
 
 == Screenshots ==
+
+<img src=http://peat.googlecode.com/svn/wiki/images/DNAtool_mainwindow.png width=600>
+
+Main window.
+
+<img src=http://peat.googlecode.com/svn/wiki/images/Mutagenic_primer_design.png width=600>
+
+Mutagenic primer design.
+
