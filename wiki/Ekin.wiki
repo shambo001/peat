@@ -1,0 +1,22 @@
+#labels Phase-Support
+<img src=http://peat.googlecode.com/svn/wiki/images/Ekin_logo.png width=100 align="right">
+
+*Ekin *is an application for storage, plotting and non-linear fitting of 2 dimensional x-y data. Ekin can be run as a stand-alone program or as a module from within PEATDB or DataPipeline. Ekin lets you import or manually enter experimental data and fit them to standard equations used in biochemistry/biophysics.
+
+= Overview =
+
+Experimental data can be entered directly into Ekin by typing data in the upper left-hand table, and can also be imported in various formats in the Data pulldown menu.
+
+The lower left side of the Ekin window holds information on the current Ekin data model and the associated [[Fit parameters]], which can be changed by clicking the model selector button. The fit models that are available are controlled by the Ekin mode.
+
+=Fitting Experimental Data=
+
+See DataPipelineModelFitting and ModelDesign for more information on these features.
+
+= Screenshots =
+
+<img src=http://peat.googlecode.com/svn/wiki/images/Ekin_Scr1.png width=600>
+
+= Availability =
+
+Ekin is distributed as part of the PEATDB and DataPipeline applications. If you have installed either of these in windows a shortcut to Ekin will be placed in the start menu. If you have used easy_install to install them, the command 'ekin' will open the program from the command line.
