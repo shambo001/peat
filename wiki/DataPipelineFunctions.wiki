@@ -18,7 +18,7 @@ Most of the filters have parameters that are normally passed to the method progr
 ||smooth||smooth using convolution of various windows with signal||window(hamming,hanning,blackman,barlett)||
 ||gaussiansmooth||smooth with gaussian window||degree(any integer)||
 ||fouriernoisefilter||low or high pass filter||||
-||savitzkygolayfilter||Savitzky–Golay smoothing filter||||
+||savitzkygolayfilter||smoothing using polynomial regression||windowsize(odd integer),order(polynomial fit),deriv(take derivative)||
 ||baselinecorrection||find y data baseline using interpolation and subtract||segmentsize(integer>0)||
 ||detectpeaks||detect peaks in noisy data||lookahead(integer>0),delta()||
 ||removeoutliers||remove outliers from normally distributed data||percentile(fraction between 0 and 1)||
