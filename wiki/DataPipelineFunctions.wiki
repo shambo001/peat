@@ -1,0 +1,30 @@
+#labels Phase-Support
+=DataPipeline functions=
+
+This are filters or specific functions carried out on the data 
+
+==Usage==
+
+Predefined functions are used by specfying them by name in the functions section in the order in which they are to be carried out. In this way the functions can be chained together. For example, to differentiate and then smooth the raw data, the user would specify function1=differentiate and function2=smooth in the functions section. Fitting could then be done on the resulting data as normal, if required.
+
+==Function parameters==
+
+Most of the filters have parameters that are normally passed to the method programmatically. For example a smoothing filter has a window width parameter and so on. To adjust these options a separate configuration file is provided with sections for each function and the default list of parameters. This file is called functions.conf and is written to the folder the first time the program is run.
+
+==Current default functions==
+
+|| *name* || *explanation* || *parameters* ||
+||differentiate||find numerical derivative of y data||none||
+||smooth||smooth using convolution of various windows with signal||window(hamming,hanning,blackman,barlett)||
+||gaussiansmooth||smooth with gaussian window||degree(any integer)||
+||fouriernoisefilter||low or high pass filter||||
+||savitzkygolayfilter||Savitzky–Golay smoothing filter||||
+||baselinecorrection||find y data baseline using interpolation and subtract||segmentsize(integer>0)||
+||detectpeaks||detect peaks in noisy data||lookahead(integer>0),delta()||
+||removeoutliers||remove outliers from normally distributed data||percentile(fraction between 0 and 1)||
+||normalise||normalise y data to input range||||
+||omitrange||omit x or y range of data points||x and y ranges to omit||
+
+==Adding custom functions==
+
+For now, functions can simply be added by inserting new methods into the Processor class found in Processing.py. Also add the name of the function to the classes `predefined` attribute.
