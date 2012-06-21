@@ -114,3 +114,7 @@ http://peat.googlecode.com/svn/wiki/images/datapipeline_scr1.png
 == API ==
 
 DataPipeline is written in python and uses modules from the PEATDB project for plotting and fitting. For those interested in the programming interface and adding new importers, see DataPipelineAPI.
+
+== Links ==
+
+See DataPipelineFunctions for information on specifying custom filters for the data.
