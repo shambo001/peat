@@ -1,4 +1,4 @@
-#labels Phase-Support
+#labels Phase-Support,Featured
 =DataPipeline functions and filters=
 
 These are sets of predefined functions that can be applied to the data one after another on the order they are specified in the configuration file.
