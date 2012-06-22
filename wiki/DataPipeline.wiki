@@ -18,6 +18,12 @@ Raw data from biology, chemistry and just about any laboratory experiments comes
  * programmers can add their own importers
  * apply pre-defined or custom filters/functions to the data set and chain them together to form a pipeline
 
+==Workflow==
+
+Shown below is the general workflow for the software. Boxes in dashed outline are optional steps.
+
+http://peat.googlecode.com/svn/wiki/images/datapipeline_workflow.png
+
 == Formats == 
 
 The majority of text readable experimental data from, say, biochemical assays have formatting that can be categorised into pre-defined foramts. For example a table of data can either be presented with independent datasets arranged in '''rows or columns'''. Other variations are then subsets of these cases. (For our purposes 'dataset' refers to a single set of x-y points. The whole purpose of the exercise is to extract these x-y points.) The format is specified in the configuration file under the 'format' keyword, see Configuration. The typical formats you would generally expect to find are built into DataPipeline, that should cover a large percentage of possible cases that will arise. See DataPipelineFormats.
