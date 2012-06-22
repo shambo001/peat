@@ -39,33 +39,13 @@ A special case that is sometimes encountered in biological assays are files with
 
 A typical configuration file is as follows:
 {{{
-[base]
-format = databyrow
-rowstart = 0
-colstart = 0
-rowend = 0
-colend = 0
-rowheader = 
-colheader = 
-rowrepeat = 0
-colrepeat = 0
-delimeter = ,
-workingdir = /home/name/workingdir
-ignorecomments = 1
-decimalsymbol = .
-xformat = 
-yformat = 
-
 [files]
 groupbyname = 0
-parsenamesindex = 0
 replicates = 0
+parsenamesindex = 0
 
-[fitting]
-xerror = 0
-yerror = 0
-iterations = 50
-modelsfile = 
+[functions]
+function1 = 
 
 [models]
 model1 = 
@@ -74,13 +54,51 @@ model1 =
 variable1 = 
 
 [excel]
-sheet = 0
 numsheets = 1
+sheet = 0
+
+[custom]
+
+[fitting]
+xerror = 0
+modelsfile = 
+iterations = 50
+yerror = 0
+
+[base]
+rowstart = 0
+rowheader = 
+yformat = 
+format = databycolumn
+decimalsymbol = .
+workingdir = workingdir
+colrepeat = 0
+rowheaderstart = 0
+rowrepeat = 0
+preprocess = 
+ignorecomments = 1
+functionsconf = functions.conf
+colheaderstart = 0
+delimeter = ,
+xformat = 
+colheader = 
+colend = 0
+colstart = 0
+rowend = 0
 
 [plotting]
-saveplots = 0
-normaliseplots = 0
+saveplots = 1
+markersize = 25
+normalise = 1
 grayscale = 0
+markers = -,x
+linewidth = 1
+fontsize = 9
+marker = -
+alpha = 0.7
+font = sans-serif
+showerrorbars = 0
+legend = 0
 dpi = 100
 }}}
 
