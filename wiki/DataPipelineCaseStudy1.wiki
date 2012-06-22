@@ -1,6 +1,8 @@
 == Introduction ==
 To illustrate the filtering capabilities of DataPipeline we generated simulated spectral data such as is found in mass spectrometry type experiments. 
 
+<img src=http://peat.googlecode.com/svn/wiki/images/datapipelinecasestudy1.png width=400 align="right">
+
 The purpose was to demonstrate that basic peak detection could be carried out using a number of the pre-defined functions that are available by default. The simulated data were generated as follows:
  * A selection of Gaussian peaks at random intervals and widths is created
  * A changing baseline, given by a power-law as a function of x is added
@@ -24,5 +26,3 @@ segmentsize = 0.3
 }}}
 
 Note that this is a very basic example with test data and real experimental datasets would need to be treated perhaps with more specific pre-preprocessing filters. But the general concept remains the same. Also note that the peak maxima are not conserved with the fixed-window smoothing filter we have used. In practice a continuous wavelet transform can be applied to the data that accounts for the varying peak widths and also helps to avoid false-positives due to noise peaks. Such an algorithm could be easily added as a filter to DataPipeline.
-
-<img src=http://peat.googlecode.com/svn/wiki/images/datapipelinecasestudy1.png width=600 align="left">
