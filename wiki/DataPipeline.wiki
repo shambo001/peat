@@ -1,5 +1,5 @@
 #labels Featured
-<wiki:toc max_depth="1" />
+<wiki:toc max_depth="2" />
 ==Introduction==
 <img src=http://peat.googlecode.com/svn/wiki/images/PipeLine_logo.png width=200 align="right">
 DataPipeline is a python desktop and command line application that uses the fitting and plotting libraries from PEAT to automate the import of raw data in a variety of formats. It is also used for transforming the imported data through various stages of fitting to achieve a final measured parameter. This is useful for handling large amounts of data (e.g from csv files) in a consistent way without having to store everything in spreadsheets.
@@ -16,12 +16,13 @@ Raw data from biology, chemistry and just about any laboratory experiments comes
  * results output as csv files and plots if desired
  * works from command line as well as desktop application
  * programmers can add their own importers
+ * apply pre-defined or custom filters/functions to the data set and chain them together to form a pipeline
 
 == Formats == 
 
-The majority of text readable experimental data from, say, biochemical assays have formatting that can be categorised into pre-defined foramts. For example a table of data can either be presented with independent datasets arranged in '''rows or columns'''. Other variations are then subsets of these cases. (For our purposes 'dataset' refers to a single set of x-y points. The whole purpose of the exercise is to extract these x-y points.) The format is specified in the configuration file under the 'format' keyword, see Configuration. The typical formats you would generally expect to find are built into DataPipeline, that should cover a large percentage of possible cases that will arise.
+The majority of text readable experimental data from, say, biochemical assays have formatting that can be categorised into pre-defined foramts. For example a table of data can either be presented with independent datasets arranged in '''rows or columns'''. Other variations are then subsets of these cases. (For our purposes 'dataset' refers to a single set of x-y points. The whole purpose of the exercise is to extract these x-y points.) The format is specified in the configuration file under the 'format' keyword, see Configuration. The typical formats you would generally expect to find are built into DataPipeline, that should cover a large percentage of possible cases that will arise. See DataPipelineFormats.
 
-The chart below illustrates the concept graphically. You will be quite quickly able to see which one of these cases corresponds to your own data file. More complex combinations are possible of course, but this will be rarely the case for most users. For very specific and usual formats a custom importer class can be written to handle it and integrated into the application. Knowledge of python is required for this, see the API section below.
+The chart below illustrates the concept graphically. You will be quite quickly able to see which one of these cases corresponds to your own data file. More complex combinations are possible of course, but this will be rarely the case for most users. For very specific and usual formats a custom importer class can be written to handle it and integrated into the application. Knowledge of python is required for this, see the API section below. 
 
 http://peat.googlecode.com/svn/wiki/images/Dataformats_overview.png
 
@@ -107,6 +108,10 @@ The 'pipeline' part of the application involves fitting imported data and groupi
 
 See [DataPipeline model fitting] for more technical information.
 
+== Filtering and pre-precessing ==
+
+See DataPipelineFunctions for information on specifying custom filters for the data. See also DataPipelineCaseStudy1.
+
 == Desktop Application ==
 
 http://peat.googlecode.com/svn/wiki/images/datapipeline_scr1.png
@@ -114,7 +119,3 @@ http://peat.googlecode.com/svn/wiki/images/datapipeline_scr1.png
 == API ==
 
 DataPipeline is written in python and uses modules from the PEATDB project for plotting and fitting. For those interested in the programming interface and adding new importers, see DataPipelineAPI.
-
-== Links ==
-
-See DataPipelineFunctions for information on specifying custom filters for the data.
