@@ -22,7 +22,7 @@ Raw data from biology, chemistry and just about any laboratory experiments comes
 
 Shown below is the general workflow for the software. Boxes in dashed outline are optional steps.
 
-http://peat.googlecode.com/svn/wiki/images/datapipeline_workflow.png
+<img src=http://peat.googlecode.com/svn/wiki/images/datapipeline_workflow.png width=500 align="right">
 
 == Formats == 
 
@@ -37,8 +37,30 @@ A special case that is sometimes encountered in biological assays are files with
 
 == Configuration ==
 
-A typical configuration file is as follows:
+A default configuration file is written by to the .pipeline folder in the users home directory and custom files can be adapted from this one and placed wherever the user wishes. A typical configuration file is as follows:
+
 {{{
+[base]
+rowstart = 0
+rowheader = 
+yformat = 
+format = databycolumn
+decimalsymbol = .
+workingdir = workingdir
+colrepeat = 0
+rowheaderstart = 0
+rowrepeat = 0
+preprocess = 
+ignorecomments = 1
+functionsconf = functions.conf
+colheaderstart = 0
+delimeter = ,
+xformat = 
+colheader = 
+colend = 0
+colstart = 0
+rowend = 0
+
 [files]
 groupbyname = 0
 replicates = 0
@@ -61,30 +83,9 @@ sheet = 0
 
 [fitting]
 xerror = 0
+yerror = 0
 modelsfile = 
 iterations = 50
-yerror = 0
-
-[base]
-rowstart = 0
-rowheader = 
-yformat = 
-format = databycolumn
-decimalsymbol = .
-workingdir = workingdir
-colrepeat = 0
-rowheaderstart = 0
-rowrepeat = 0
-preprocess = 
-ignorecomments = 1
-functionsconf = functions.conf
-colheaderstart = 0
-delimeter = ,
-xformat = 
-colheader = 
-colend = 0
-colstart = 0
-rowend = 0
 
 [plotting]
 saveplots = 1
@@ -102,9 +103,12 @@ legend = 0
 dpi = 100
 }}}
 
-===Explanation of options===
+===Explanation of selected options===
 
-||option||possible values||explanation||
+Some options are self-explanatory, such as the plotting options. The functions section is explained in DataPipelineFunctions. The remainder are detailed below.
+
+|| *option*|| *possible values* || *explanation* ||
+||workingdir||any valid path||the folder where all results are placed||
 ||format||see formats diagram above||general structure of the data fall into predefined categories||
 ||decimalsymbol||. or ,||symbol used to indicate decimal point||
 ||delimiter||any symbol except a numerical value||separator between data||
@@ -114,7 +118,6 @@ dpi = 100
 ||colend||any integer value||column where the data ends, optional||
 ||colrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced columns||
 ||rowrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced rows||
-||workingdir||string||name of folder to save results in ||
 ||ignorecomments||0 or 1||ignore lines starting with #||
 ||xformat||see 'specifying time formats' below||specify if x values in time formats||
 ||yformat||as above||specify if y values in time formats||
@@ -122,6 +125,7 @@ dpi = 100
 ||yerror||any decimal||experimental error on all x values||
 ||iterations||any value greater than 1||number of rounds of fitting||
 ||modelsfile||any valid filename||file to load you models from||
+||models||any valid model name||model to use for fitting see ModelDesign||
 
 ===Specifying time formats===
 The xformat and yformat keywords allow you to specify if either dimension of your data are in units of time. These can then be converted to integer values of seconds for numerical analysis. For example if you x values increasing in amounts of 10 seconds in the folllowing format: 0:10, 0:20, 0:30. You enter *xformat = %M:%S* in the configuration file.
