@@ -1,7 +1,7 @@
 #labels Phase-Support,Featured
 =DataPipeline functions and filters=
 
-These are sets of predefined functions that can be applied to the data one after another on the order they are specified in the configuration file.
+These are sets of predefined functions that can be applied to the data one after another in the order they are specified in the functions section of the configuration file.
 
 ==Usage==
 
@@ -9,7 +9,7 @@ Predefined functions are used by specfying them by name in the _functions_ secti
 
 ==Specifying function parameters==
 
-Most of the filters have parameters (or 'arguments') that would normally be passed to the python method programmatically. For example a smoothing filter has a window width parameter and so on. To adjust these options a separate configuration file is provided with sections for each function and the default list of parameters. This file is called `functions.conf` and is written to the folder the first time the program is run.
+Most of the filters have parameters (or 'arguments') that would normally be passed to the python method programmatically. For example a smoothing filter has a window width parameter and so on. To adjust these options a separate configuration file is provided with sections for each function and the default list of parameters. This file is called `functions.conf` and is written to the .pipeline folder the first time the program is run. Usually it is easier to edit this default file, though it can be copied to another location if required.
 
 ==Current default functions==
 
@@ -22,8 +22,8 @@ Most of the filters have parameters (or 'arguments') that would normally be pass
 ||baselinecorrection||find y data baseline using interpolation and subtract||segmentsize(integer>0)||
 ||detectpeaks||detect peaks in noisy data||lookahead(integer>0),delta()||
 ||removeoutliers||remove outliers from normally distributed data||percentile(fraction between 0 and 1)||
-||normalise||normalise y data to input range||||
-||omitrange||omit x or y range of data points||x and y ranges to omit||
+||normalise||normalise y data to input range||value(any integer)||
+||omitrange||omit x or y range of data points||xmin,xmax,ymin,ymax - ranges to omit||
 
 ==Adding custom functions==
 
