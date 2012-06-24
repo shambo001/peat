@@ -5,10 +5,10 @@ Numerical tabulated data is stored in PEATDB using our [[Ekin]] format, these da
 
 == General Usage ==
 
-*Simply select the record(s) and field to compare and then use the rightmost dialog buttons to select the particular 'datasets' that you want to filter out. This is done by entering a wildcard value in the data labels box, or the exact name of the label you want to plot. Pressing return or 'preview' shows which labels are found, if any.
-*A ''dataset'' constitutes an individual label for each x-y data inside an ekin project. So multiple records may have the same field holding the same dataset. We use this functionality when comparing wt vs mutant for properties tracked across the same residue.
-*Press display to view the plots, which can be overlayed in one plot (for each field) or in many sub plots.
-*If you select more than one record/field, the plots can be grouped by field OR record, depending on how you want to slice the data.
+ * Simply select the record(s) and field to compare and then use the rightmost dialog buttons to select the particular 'datasets' that you want to filter out. This is done by entering a wildcard value in the data labels box, or the exact name of the label you want to plot. Pressing return or 'preview' shows which labels are found, if any.
+ * A ''dataset'' constitutes an individual label for each x-y data inside an ekin project. So multiple records may have the same field holding the same dataset. We use this functionality when comparing wt vs mutant for properties tracked across the same residue.
+ * Press display to view the plots, which can be overlayed in one plot (for each field) or in many sub plots.
+ * If you select more than one record/field, the plots can be grouped by field OR record, depending on how you want to slice the data.
 
 == Comparing across a number of records and fields at once ==
 
@@ -23,8 +23,8 @@ You may add basic annotations to the plots from the top toolbar menu.
 == Publication Quality Plots ==
 
 Since we use matplotlib for plotting, it is possible to produce plots of high quality. 
-*Appearance and rendering may be improved if you tick the '''use latex''' option inside the plot options dialog. This will use LaTex to produce properly rendered greek symbols and math expressions, however drawing of plots will take longer, so be patient.
-*Saving the plots at 300 dpi is usually required for publications. See example in the gallery below.
+ * Appearance and rendering may be improved if you tick the '''use latex''' option inside the plot options dialog. This will use LaTex to produce properly rendered greek symbols and math expressions, however drawing of plots will take somewhat longer, so be patient.
+ * Saving the plots at 300 dpi is usually required for publications. See example in the gallery below.
 
 == Using LaTex ==
 
