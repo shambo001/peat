@@ -3,7 +3,7 @@
 
 ==Windows==
 
-Just download the MSI installer from the downloads section. This will place shortcuts on your desktop.
+Just download the MSI installer from the downloads section. This will place shortcuts on your desktop. (You can install the source package instead, as described below, but this is a little trickier in windows). 
 
 ==Linux==
 
