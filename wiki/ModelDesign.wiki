@@ -1,5 +1,5 @@
 #labels Featured
-= Introduction =
+= Model design in DataPipeline =
 
 ModelDesign is a module of the PEAT suite of applications that is used to create non-linear fitting models for use in the Ekin application or elsewhere. The fitting equation, parameters and start values are entered in the dialogs as text and the model may be tested interactively on the users sample data. 
 
