@@ -17,6 +17,8 @@ Options:
   -f FILE, --file=FILE  Raw file
   -d DIRECTORY, --dir=DIRECTORY
                         Folder of raw files
+  -p FILE, --project=FILE
+                        Project file
 }}}
 
 ==Windows==
