@@ -134,9 +134,7 @@ The xformat and yformat keywords allow you to specify if either dimension of you
 
 == Model Fitting ==
 
-The 'pipeline' part of the application involves fitting imported data and grouping the fitted parameters into new sets of data which can in turn be fit to another model. Custom fitting models can be created using the ModelDesign module.
-
-See [DataPipeline model fitting] for more technical information.
+Part of the application involves fitting imported data and grouping the fitted parameters into new sets of data which can in turn be fit to another model. Custom fitting models can be created using the ModelDesign module, where further information is provided.
 
 == Filtering and pre-precessing ==
 
