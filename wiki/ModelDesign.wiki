@@ -11,15 +11,16 @@ The application is useful for:
 
 This application is currently available in Ekin and DataPipeline or can be run standalone.
 
+See DataPipelineModelFitting for more information on how the models are used on that application.
+
 ==Usage==
+<img src=http://peat.googlecode.com/svn/wiki/images/Modeldesignapp.png width=600 align="right" style="padding:5px;">
 
 The user interface is simple and mostly self explanatory. On the left side of the window are entry fields for equation, parameters, description and parameter start values. The right side shows a plot of the current test data. When the test model button is pressed a fitter is created from the current settings and used to to fit the data. The plot is updated at each iteration to show the progress. Current fitted parameters values are updated in the plot also. The concept being that if a fit cannot converge the user can interactively alter the start values to improve performance.
 
 One or more models are stored in a python dictionary which can be saved when necessary. This dictionary can be read by Ekin or DataPipeline, applications that perform model fitting. Or users can simply make note of the details and use them in their own fitting application. To create a new model, just press the 'New Model' button, name the model and some default settings are added to the entry fields.
 
 The application opens with some default test datasets. Your own test data can be added by importing a csv file or loading a previously saved Ekin project. Multiple sets of data can be imported and moved through with the navigation buttons above the plot.
-
-http://peat.googlecode.com/svn/wiki/images/Modeldesignapp.png
 
 ==Writing Equations==
 
@@ -35,4 +36,7 @@ Several basic examples are embedded into the program by default. These are meant
 
 ==Model Selection==
 
-Before deciding on curve fitting approaches for their data users may wish to determine the most appropriate models to utilize. The ability to compare two or more models is provided in the ModelDesign module.  The approach used is sometimes referred to as the extra sum-of-squares F-test and is detailed in the [http://www.graphpad.com/index.cfm?cmd=library.page&pageID=12&categoryID=6 Graphpad Practical Guide to Curve Fitting]. (An F-test is any statistical test in which the test statistic has an F-distribution under some null hypothesis). The basic idea of the test is as follows: Given two related models A and B, B is a nested version of A with one more parameter. B will always be able to fit the data at least as well as A. Typically B will give a better (i.e. lower sum of squares error) fit to the data than A. To choose between models, one needs to know if B gives a significantly better fit to the data. The method requires that models are nested, that is, related in some way and with increasing number of parameters and that the same data is used to test all models.
+Before deciding on curve fitting approaches for their data users may wish to determine the most appropriate models to utilize. The ability to compare two or more models is provided in the application for this purpose. This function is evoked by pressing the 'compare models' button and is currently quite basic. It performs the test with the currently loaded data and simply reports the best model with the p-value. Note that you should generally perform this test a number of times with different data points to be sure that the result is consistent and not just a result of the distribution of points in one set of data.
+
+===Method used===
+The approach used is sometimes referred to as the *extra sum-of-squares F-test* and is detailed in the [http://www.graphpad.com/index.cfm?cmd=library.page&pageID=12&categoryID=6 Graphpad Practical Guide to Curve Fitting]. (An F-test is any statistical test in which the test statistic has an F-distribution under some null hypothesis). The basic idea of the test is as follows: Given two related models A and B, B is a nested version of A with one more parameter. B will always be able to fit the data at least as well as A. Typically B will give a better (i.e. lower sum of squares error) fit to the data than A. To choose between models, one needs to know if B gives a significantly better fit to the data. The method requires that models are nested, that is, related in some way and with increasing number of parameters and that the same data is used to test all models.
