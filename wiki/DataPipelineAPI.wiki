@@ -1,5 +1,5 @@
 #labels Featured
-==Introduction==
+==DataPipeline for programmers==
 
 DataPipeline is written in the python language and can be extended by writing a custom Importer class or adding filters/functions. Users who know [http://www.python.org/ Python] and are interested in adding their own importers may find the information here useful. The code is compatible with Python versions>=2.5.
 
@@ -45,4 +45,28 @@ class MyCustomImporter(BaseImporter):
 
     def doImport(self, lines):
         #your code here
+}}}
+
+==Adding filters/functions==
+
+Pre-defined filters are implemented by the `Processor` class. The `doProcessingStep()` method of the Pipeline class (called when the `run()` method is executed) first checks that the names are found in the `predefined` attribute of the Processor class, if not the method returns.
+
+{{{
+X = Processor(self.functionsconf)
+names = [i[1] for i in self.functions]
+for n in names:
+    if n not in X.predefined:
+        print 'function %s not found' %n
+        return data
+data = X.doFunctions(names, data)
+}}}
+
+`Processor.doFunctions` then executes the filters simply by looping over the function names in the order they are defined in the configuration file.
+
+For now, functions can simply be added by inserting new methods into the Processor class found in Processing.py. Also add the name of the function to the classes predefined attribute. New functions should be specified in the following form:
+
+{{{
+def somefunction(self, x, y):
+    #process values here, if x or y is unchanged, just return it
+    return newx,newy
 }}}
