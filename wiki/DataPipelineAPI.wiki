@@ -1,26 +1,31 @@
 #labels Featured
 ==Introduction==
 
-DataPipeline is written in python and can be extended by writing a custom Importer class. Users who are interested in adding their own importers may find the information here useful.
+DataPipeline is written in the python language and can be extended by writing a custom Importer class or adding filters/functions. Users who know [http://www.python.org/ Python] and are interested in adding their own importers may find the information here useful. The code is compatible with Python versions>=2.5.
 
-==Base classes==
+==Classes==
 
-These are held in the Base.py and consist of:
-Pipeline: Handles all file reading/writing, queuing, fitting and joining of data, managing configuration files and is the core of the the module.
-BaseImporter: This class does the actual import from the file, given a configuration. It has basic methods for
-getting rows, headers etc. In practice this is always subclassed and the doImport method overridden to achieve the desired functionality. There are currently 8 Importer classes built in to DataPipeline that handle the most common text formats.
+The (somewhat non-standard) diagram below shows how the core classes relate to the main components. We currently import several plotting and fitting methods from PEATDB, so this package is a dependency when installing the source package. Note that PEATDB has itself other dependencies such as ZODB, but these are not required for DataPipeline to work.
+
+<img src=http://peat.googlecode.com/svn/wiki/images/datapipeline_classes.png width=800>
+
+The core class is `Base.Pipeline` which handles all file reading/writing, queuing, fitting and joining of data, managing configuration files. 
+
+The `BaseImporter` class does the actual import from the file, given a configuration. It has basic methods for getting rows, headers etc. This is always subclassed and the doImport method overridden to achieve the desired functionality. There are currently 8 Importer classes built in to DataPipeline that handle the most common text formats.
 These are:
 
- * DatabyColImporter
- * DatabyRowImporter
- * PairedDatabyColImporter
- * PairedDatabyRowImporter
- * GroupedDatabyColImporter
- * GroupedDatabyRowImporter
+ * `DatabyColImporter`
+ * `DatabyRowImporter`
+ * `PairedDatabyColImporter`
+ * `PairedDatabyRowImporter`
+ * `GroupedDatabyColImporter`
+ * `GroupedDatabyRowImporter`
+
+See DataPipelineFormats
 
 ==Adding a custom importer==
 
-To add your own custom importers, simple subclass the BaseImporter class and put the code in Custom.py so that the importer will be loaded automatically when required. 
+To add your own custom importers, simple subclass the `BaseImporter` class and put the code in Custom.py so that the importer will be loaded automatically when required. 
 
  * Set the 'name' property of the importer, this label will be used in the _format_ keyword in the configuration file to identify your importer.
  * Override the doImport method at minimum.
