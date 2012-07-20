@@ -158,6 +158,6 @@ DataPipelineInstallation
 
 Please reference the software using this citation:
 
-DataPipeline: Automated importing and fitting of large amounts of biophysical data. Damien Farrell and Jens Erik Nielsen. J.Comput.Chem. 2012 DOI: 10.1002/jcc.23066
+{{{DataPipeline: Automated importing and fitting of large amounts of biophysical data. D Farrell and JE Nielsen. J.Comput.Chem. 2012 DOI: 10.1002/jcc.23066}}}
 
-http://onlinelibrary.wiley.com/doi/10.1002/jcc.23066/abstract
+Link to this paper: http://onlinelibrary.wiley.com/doi/10.1002/jcc.23066/abstract
