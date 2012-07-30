@@ -161,3 +161,5 @@ Please reference the software using this citation:
 {{{DataPipeline: Automated importing and fitting of large amounts of biophysical data. D Farrell and JE Nielsen. J.Comput.Chem. 2012 DOI: 10.1002/jcc.23066}}}
 
 Link to this paper: http://onlinelibrary.wiley.com/doi/10.1002/jcc.23066/abstract
+
+A pdf of this paper is available [https://www.researchgate.net/publication/229160677_DataPipeline_Automated_importing_and_fitting_of_large_amounts_of_biophysical_data/file/9fcfd5016bd33cfb20.pdf?ev=pub_int_doc_dl here]
