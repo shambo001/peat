@@ -5,10 +5,20 @@ PEATDB allows for shared, multi-user network access to a remote database held on
 However the default remote storage used by PEAT is RelStorage, which uses a relational database instead. This allows us to use the better security features provided by an RDBMS like MySQL, which is what we use. Supposedly RelStorage also handles high concurrency better than ZEO, though this generally won't be an issue in PEAT unless a very large number of users are reading and writing to the database at once.
 Note: RelStorage simply uses the RDBMS machinery to store the object database, it is not in itself a normal relational database - i.e. we can't use mysql to search our DB.
 
-==Setting up a RelStorage Server (MySQL backend)==
+==Setting up a relstorage server (MySQL backend)==
 
-RelStorage is a python library that allows one to use MySQL to store the object database, giving the security and reliablity of MySQL. Therefore this is essentially no different to setting up a MySQL server. We recommend phpMyAdmin for web based admin of the server, making it easy to add users etc. There are instructions for doing this on each operating system and rather than provide them here, we recommend a web search for that. When MySQL is setup you just add a database for each peat project and add user/passwords and give them access to the databases you want. That's it.
+RelStorage is a python library that allows one to use MySQL to store the object database, giving the security and reliablity of MySQL. Therefore this is essentially no different to setting up a MySQL server. We recommend phpMyAdmin for web based admin of the server, making it easy to add users etc. There are instructions for doing this on each operating system and rather than provide them here, we recommend a web search for that. When MySQL is setup you just add a database for each peat project and add user/passwords and give them access to the databases you want.
 Finally you will need to allow outside access to the port that MySQL is running on if you want users to be able to remotely access your database. You can change the MySQL port in the configuration file too if needed. The default port is 3306. We use port 8080 on our own server. Note that because the database is open to the outside world there are security issues and you should carefully consider what data you put there. Access can be granted per IP address to individual DBs. See http://www.cyberciti.biz/tips/how-do-i-enable-remote-access-to-mysql-database-server.html
+
+===relstorage migration to 1.5===
+
+If your database was created using relstorage 1.4 and the relstorage client version has changed to 1.5 you will need to run the following MySQL code to migrate the database. This will not change any of your data:
+
+{{{
+    ALTER TABLE object_state ADD COLUMN state_size BIGINT AFTER md5;
+    UPDATE object_state SET state_size = COALESCE(LENGTH(state), 0);
+    ALTER TABLE object_state MODIFY state_size BIGINT NOT NULL AFTER md5;
+}}}
 
 ==Server Configuration==
 
