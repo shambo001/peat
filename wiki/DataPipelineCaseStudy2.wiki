@@ -26,6 +26,8 @@ Example contents of one file:
 4.063 127.263 8.882  
 }}}
 
+===Configuration===
+
 This kind of data is straightforward but it needs a few special configuration settings:
 
  * The format is databycolumn, but there are no column headings. So we set these manually using the _colheaderlabels_ keyword. Note that adding only the first column name means the second is ignored.
@@ -43,3 +45,6 @@ extension = .inp
 }}}
 
 The result is a csv file and ekin project file for each column.
+
+===Sample data===
+Sample data files for this case study and the appropriate configuration file are available [http://peat.googlecode.com/files/nmr_data.zip here].
