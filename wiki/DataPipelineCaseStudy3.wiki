@@ -19,6 +19,7 @@ To handle the data a custom importer was written since it did not match any of o
 We used the fit propagation functionality described elsewhere. Replicates were treated as independent and therefore fit separately. Note also that in our worked example we fit to KM values since finding the kcat requires an intermediate calculation step which we performed with a small amount of extra custom code. We are currently working on a more flexible way to specify automatic intermediate processing steps between successive iterations of fitting, in addition to the pre-processing step mentioned already.
 
 ===Configuration===
+The relevant configuration settings are shown here. Fit propagation is done by enabling the *groupbyname* keyword along wit specifying the required models and parameters. Also not the *xformat* option specifying that these are in a time format.
 
 {{{
 [base]
