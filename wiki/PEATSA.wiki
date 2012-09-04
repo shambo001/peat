@@ -1,0 +1,41 @@
+==Introduction==
+
+PEATSA is a part of the PEAT suite of programs for storing, analysing and predicting biophysical data on proteins It allows you to analyse the effect of each amino acid residue on the biophysical characteristics of a protein. Currently PEAT_SA computes changes in,
+
+ * pKa values
+ * Protein stability
+ * Protein-ligand binding affinity
+for a given set of point mutations.
+
+PEATSA unifies the UFFBAPS and pKD programs and performs most of the necessary preparation steps e.g. adding hydrogens, automatically. This makes it easier for users to run the calculations they want as little to no technical knowledge about these programs is required to use PEATSA.
+
+==Using PEATSA==
+
+There are currently three ways of using PEATSA. PEATSA is accessible via a web-server on enzyme.ucd.ie
+We have also created a module that allows clients to interact with remote installations of PEATSA 
+
+==Installing PEATSA on a local machine==
+The rest of this document describes how to install PEATSA locally. In the following the three CalculationTypes are referred to as - Scan, Stability and Binding.
+
+==Obtaining PEATSA==
+
+PEATSA is licensed under the GPL and the source code is available in our GoogleCode repository.
+Currently we do not have a convenient installation procedure for PEATSA and installation will therefore involve a great deal of manual tweaking. Potential users should contact Jens.Nielsen@ucd.ie to arrange installation. However we have also made it possible for client to interact with remote a PEATSA Server which means a single PEATSA installation can be created that can be accessed by multiple users in different locations.
+Once you have obtained PEATSA, look at the InstallationNotes to familiarize yourself with the package dir layout.
+
+==Installing PEATSA==
+
+PEATSA has a number of dependencies on open-source third party packages which must be installed before beginning:
+
+ * numpy
+ * python 2.5
+ * Boost C++ libs
+ * pdb2pqr
+ * APBS with python wrappers enabled
+
+In addition pdb2pqr can be replaced with WHAT IF and APBS with DelPhi if desired. However note that WHAT IF and DelPhi are not open-source and licenses for them must be obtained separately.
+PEATSA also depends on a number of other programs in the PEAT suite:
+UFFBAPS, FFF, pKaTool
+
+These packages must be manually compiled for PEATSA to work. All are part of the PEAT suite and are hence their source code is present when you check out our repository.
+PEATSAParallel describes how to get PEATSA running in a parallel environment.
