@@ -43,33 +43,40 @@ A default configuration file is written by to the .pipeline folder in the users 
 
 {{{
 [base]
+format = databyrow
 rowstart = 0
-rowheader = 
-yformat = 
-format = databycolumn
-decimalsymbol = .
-workingdir = workingdir
-colrepeat = 0
-rowheaderstart = 0
-rowrepeat = 0
-preprocess = 
-ignorecomments = 1
-functionsconf = functions.conf
-colheaderstart = 0
-delimeter = ,
-xformat = 
-colheader = 
-colend = 0
 colstart = 0
 rowend = 0
+colend = 0
+colheaderstart = 0
+rowheaderstart = 0
+rowheader = 
+colheader = 
+colheaderlabels = 
+rowheaderlabels = 
+rowrepeat = 0
+colrepeat = 0
+delimeter = ,
+workingdir = /home/user/.pipeline/workingdir
+functionsconf = /home/user/.pipeline/functions.conf
+ignorecomments = 1
+decimalsymbol = .
+preprocess = 
+xformat = 
+yformat = 
+groupbyfields = 0
 
 [files]
 groupbyname = 0
-replicates = 0
 parsenamesindex = 0
+replicates = 0
+extension = .txt
 
-[functions]
-function1 = 
+[fitting]
+xerror = 0
+yerror = 0
+iterations = 50
+modelsfile = 
 
 [models]
 model1 = 
@@ -77,32 +84,30 @@ model1 =
 [variables]
 variable1 = 
 
+[functions]
+function1 = 
+
 [excel]
-numsheets = 1
 sheet = 0
+numsheets = 1
+
+[plotting]
+saveplots = 0
+fontsize = 9
+normalise = 0
+grayscale = 0
+alpha = 0.8
+font = sans-serif
+markersize = 25
+linewidth = 1
+showerrorbars = 0
+dpi = 100
+marker = o
+markers = -,o
+legend = 0
 
 [custom]
 
-[fitting]
-xerror = 0
-yerror = 0
-modelsfile = 
-iterations = 50
-
-[plotting]
-saveplots = 1
-markersize = 25
-normalise = 1
-grayscale = 0
-markers = -,x
-linewidth = 1
-fontsize = 9
-marker = -
-alpha = 0.7
-font = sans-serif
-showerrorbars = 0
-legend = 0
-dpi = 100
 }}}
 
 ===Explanation of selected options===
@@ -118,6 +123,8 @@ Some options are self-explanatory, such as the plotting options. The functions s
 ||colstart||any integer value||column where the data starts, including y labels||
 ||rowend||any integer value||row where the data ends, optional||
 ||colend||any integer value||column where the data ends, optional||
+||rowheaderlabel||comma separated list||provide row names manually||
+||colheaderlabel||comma separated list||provide column names manually||
 ||colrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced columns||
 ||rowrepeat||0 or any value >1||indicates that sets of data are grouped in evenly spaced rows||
 ||ignorecomments||0 or 1||ignore lines starting with #||
@@ -125,12 +132,23 @@ Some options are self-explanatory, such as the plotting options. The functions s
 ||yformat||as above||specify if y values in time formats||
 ||xerror||any decimal||experimental error on all x values||
 ||yerror||any decimal||experimental error on all x values||
+||groupbyfield||0 or 1||tells the program to group input data by field names, see below||
 ||iterations||any value greater than 1||number of rounds of fitting||
 ||modelsfile||any valid filename||file to load you models from||
 ||models||any valid model name||model to use for fitting see ModelDesign||
+||groupbyname||0 or 1 ||activate the grouping by file name functionality, explained below||
+||extension||any file extension||filter input files by extension, default is .txt||
 
 ===Specifying time formats===
 The xformat and yformat keywords allow you to specify if either dimension of your data are in units of time. These can then be converted to integer values of seconds for numerical analysis. For example if you x values increasing in amounts of 10 seconds in the folllowing format: 0:10, 0:20, 0:30. You enter *xformat = %M:%S* in the configuration file.
+
+===Grouping by field names===
+
+The *groupbyfield* parameter tells the program to try to re-arrange the imported data so that mutliple files are grouped into one or more field names. The field names are the row or column header labels depending on you input format. In this way you can combine many individual input files into a one or more output csv files (and an ekin project). An example is given in DataPipelineCaseStudy2.
+
+===Grouping by file labels===
+
+This functionality is enabled by setting the *groupbyname* keyword to 1. It allows data to be re-grouped according to a numerical value that can be extracted from the file names and is normally used in conjunction with some model fitting. For example if we had a set of files named according to a temperature the data was taken at and each file contained some other assay that could be fit to some model. We would parse the file names, import, fit each file data and regroup to achieve a set of temperatures vs. the fitted parameters. See also DataPipelineCaseStudy3 for a worked example.
 
 == Model Fitting ==
 
