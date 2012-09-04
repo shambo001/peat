@@ -1,5 +1,5 @@
 #labels Phase-Support
-==DataPipeline Case Study 2: Importing multiple files into one==
+==DataPipeline Case Study 2: Grouping multiple files by their field names==
 
 This example shows how to import the data from many files into one by using the group keyword. The data in this case were pH NMR titration data files. Each file represents the data for one protein residue and each contains 3 columns: the x-data (pH points) and a column for 1H and 15N measurements.
 
