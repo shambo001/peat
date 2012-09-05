@@ -1,4 +1,5 @@
 #labels Phase-Support
+<img src=http://peat.googlecode.com/svn/wiki/images/PEATDB_logo.png width=300 align="right">
 = Introduction =
 
 *Protein Engineering Analysis Tool (Database)* (PEATDB) is a desktop application built for sharing, analysing and storing experimental and theoretical data from Protein Engineering experiments. This software is released as free software under the terms of the GPLv3.
