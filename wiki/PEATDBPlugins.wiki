@@ -5,7 +5,7 @@ PEATDB supports a simple plugin system for the client application that allows a 
 ==Current Plugins==
 
 We have developed several plugins for our own analysis and make them available with PEAT:
- * PEATSA Plugin: Submit and retrieve structure-based energy calculations using PEATSA. See PEATSAPlugin
+ * PEATSA Plugin: Submit and retrieve structure-based energy calculations using PEATSA. See [PEATSAPlugin]
  * Correlation Analysis: A plugin we are developing that does analysis of experimental vs model prediction correlations. Requires scipy.
  * Van't Hoff Analysis: Do analysis on thermal denauration (CD) data using various methods from the literature.
 
