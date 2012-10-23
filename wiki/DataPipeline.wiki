@@ -138,6 +138,8 @@ Some options are self-explanatory, such as the plotting options. The functions s
 ||models||any valid model name||model to use for fitting see ModelDesign||
 ||groupbyname||0 or 1 ||activate the grouping by file name functionality, explained below||
 ||extension||any file extension||filter input files by extension, default is .txt||
+||parsenameindex||any valid index or empty||index(es) to parse filenames for data labels||
+||parsemethod||numeric,text or both||method to parse filenames, will detect only numbers, text or both||
 
 ===Specifying time formats===
 The xformat and yformat keywords allow you to specify if either dimension of your data are in units of time. These can then be converted to integer values of seconds for numerical analysis. For example if you x values increasing in amounts of 10 seconds in the folllowing format: 0:10, 0:20, 0:30. You enter *xformat = %M:%S* in the configuration file.
