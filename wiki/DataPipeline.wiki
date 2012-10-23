@@ -150,7 +150,17 @@ The *groupbyfield* parameter tells the program to try to re-arrange the imported
 
 ===Grouping by file labels===
 
-This functionality is enabled by setting the *groupbyname* keyword to 1. It allows data to be re-grouped according to a numerical value that can be extracted from the file names and is normally used in conjunction with some model fitting. For example if we had a set of files named according to a temperature the data was taken at and each file contained some other assay that could be fit to some model. We would parse the file names, import, fit each file data and regroup to achieve a set of temperatures vs. the fitted parameters. See also DataPipelineCaseStudy3 for a worked example.
+This functionality is enabled by setting the *groupbyname* keyword to 1. It allows data to be re-grouped according to a text or numerical label that can be extracted from the file names. The index of this label is specified by the *parsenamesindex* keyword and *parsemethod* tells the parser whether to extract numbers or text only or alphanumeric words.
+
+Example:
+{{{
+Parsing the filename 'AA_2-12-12_ph8.0_rep2.txt'
+
+The options parsenamesindex=3, parsemethod=numeric will detect the label '8.0'
+The options parsenamesindex=0, parsemethod=text detects the label 'AA'.
+}}}
+
+It may be used in conjunction with some model fitting. For example if we had a set of files named according to a temperature the data was taken at and each file contained some other assay that could be fit to some model. We would parse the file names, import, fit each file data and regroup to achieve a set of temperatures vs. the fitted parameters. See also DataPipelineCaseStudy3 for a worked example.
 
 == Model Fitting ==
 
