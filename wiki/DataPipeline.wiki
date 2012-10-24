@@ -69,6 +69,7 @@ groupbyfields = 0
 [files]
 groupbyname = 0
 parsenamesindex = 0
+parsemethod =
 replicates = 0
 extension = .txt
 
@@ -138,7 +139,7 @@ Some options are self-explanatory, such as the plotting options. The functions s
 ||models||any valid model name||model to use for fitting see ModelDesign||
 ||groupbyname||0 or 1 ||activate the grouping by file name functionality, explained below||
 ||extension||any file extension||filter input files by extension, default is .txt||
-||parsenameindex||any valid index or empty||index(es) to parse filenames for data labels||
+||parsenamesindex||any valid index or empty||index(es) to parse filenames for data labels||
 ||parsemethod||numeric,text or both||method to parse filenames, will detect only numbers, text or both||
 
 ===Specifying time formats===
@@ -160,7 +161,9 @@ The options parsenamesindex=3, parsemethod=numeric will detect the label '8.0'
 The options parsenamesindex=0, parsemethod=text detects the label 'AA'.
 }}}
 
-It may be used in conjunction with some model fitting. For example if we had a set of files named according to a temperature the data was taken at and each file contained some other assay that could be fit to some model. We would parse the file names, import, fit each file data and regroup to achieve a set of temperatures vs. the fitted parameters. See also DataPipelineCaseStudy3 for a worked example.
+Note that currently only a single file label can be parsed but in future multiple indexes will allow data to be grouped by more than one label.
+
+This functionality may be used in conjunction with some model fitting. For example if we had a set of files named according to a temperature the data was taken at and each file contained some other assay that could be fit to some model. We would parse the file names, import, fit each file data and regroup to achieve a set of temperatures vs. the fitted parameters. See also DataPipelineCaseStudy3 for a worked example.
 
 == Model Fitting ==
 
